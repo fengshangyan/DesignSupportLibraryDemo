@@ -1,6 +1,7 @@
 package com.hujiang.designsupportlibrarydemo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.hujiang.designsupportlibrarydemo.R.*;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -28,24 +31,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(id.toolbar);
         setSupportActionBar(toolbar);
 
         final ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+        ab.setHomeAsUpIndicator(drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
 
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main_drawer);
+        mDrawerLayout = (DrawerLayout) findViewById(id.dl_main_drawer);
         NavigationView navigationView =
-                (NavigationView) findViewById(R.id.nv_main_navigation);
+                (NavigationView) findViewById(id.nv_main_navigation);
         if (navigationView != null) {
             setupDrawerContent(navigationView);
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,8 +65,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
+        mViewPager = (ViewPager) findViewById(id.viewpager);
         setupViewPager();
+
+
+
+        System.out.println("git");
 
     }
 
@@ -84,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        mTabLayout = (TabLayout) findViewById(id.tabs);
         List<String> titles = new ArrayList<>();
         titles.add("Page One");
         titles.add("Page Two");
